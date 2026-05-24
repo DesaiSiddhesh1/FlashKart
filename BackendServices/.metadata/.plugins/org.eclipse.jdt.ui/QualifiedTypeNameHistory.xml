@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
+    <fullyQualifiedTypeName name="io.jsonwebtoken.security.Keys"/>
+    <fullyQualifiedTypeName name="io.jsonwebtoken.Jwts"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="com.flashkart.userservice.dto.AuthResponseDto"/>
+    <fullyQualifiedTypeName name="com.flashkart.userservice.dto.LoginRequestDto"/>
+    <fullyQualifiedTypeName name="com.flashkart.userservice.repository.UserRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.security.crypto.password.PasswordEncoder"/>
+    <fullyQualifiedTypeName name="org.modelmapper.ModelMapper"/>
+    <fullyQualifiedTypeName name="com.flashkart.userservice.security.JwtUtil"/>
+    <fullyQualifiedTypeName name="com.flashkart.userservice.dto.UserRequestDto"/>
+    <fullyQualifiedTypeName name="com.flashkart.userservice.entity.User"/>
+    <fullyQualifiedTypeName name="com.flashkart.userservice.repository.UserResponseDto"/>
+</qualifiedTypeNameHistroy>

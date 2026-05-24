@@ -1,0 +1,33 @@
+package com.flashkart.userservice.service.impl;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.flashkart.userservice.dto.UserRequestDto;
+import com.flashkart.userservice.repository.UserRepository;
+import com.flashkart.userservice.security.JwtUtil;
+import com.flashkart.userservice.service.UserService;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class UserServiceImpl implements UserService {
+	
+	private final UserRepository repository;
+	private final PasswordEncoder passwordEncoder;
+	private final ModelMapper mapper;
+	private final JwtUtil jwtUtil;
+	
+	
+	@Override
+	public UserReponseDto register(UserRequestDto request) {
+		repository.findByEmail(request.getEmail())
+			.ifPresent(user ->{
+				throw new DuplicateResourceException(
+						"Email Already Exists");
+			});
+	}
+
+}

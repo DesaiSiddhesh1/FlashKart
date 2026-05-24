@@ -1,0 +1,5 @@
+package com.flashkart.userservice.exception;
+
+public class DuplicateResourceException {
+
+}

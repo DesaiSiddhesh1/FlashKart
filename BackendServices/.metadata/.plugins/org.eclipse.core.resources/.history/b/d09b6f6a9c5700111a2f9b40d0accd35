@@ -1,0 +1,5 @@
+package com.flashkart.userservice.response;
+
+public class ApiResponse {
+
+}

@@ -1,0 +1,5 @@
+package com.flashkart.userservice.entity;
+
+public class User {
+
+}

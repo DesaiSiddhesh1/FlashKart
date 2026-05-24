@@ -1,0 +1,16 @@
+package com.flashkart.userservice.entity;
+
+import jakarta.persistence.*;
+
+import lombok.Getter;
+import lombok.*;
+
+@Entity
+@Table(name="users")
+@Getter
+@Setter
+@NoArgsConstructor
+
+public class User {
+
+}
