@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.Claims;
+
 
 @Component
 public class JwtUtil {
@@ -29,5 +31,23 @@ public class JwtUtil {
 				.setExpiration(new Date(System.currentTimeMillis()+expiration))
 				.signWith(key)
 				.compact();
+	}
+	
+	public String extractUsername(String token) {
+		SecretKey key = Keys.hmacShaKeyFor(secret.getBytes());
+		
+		return Jwts.parserBuilder()
+				.setSigningKey(key)
+				.build()
+				.parseClaimsJws(token)
+				.getBody()
+				.getSubject();
+	}
+	
+	public boolean validateToken(String token,String email)
+	{
+		String username = extractUsername(token);
+		
+		return username.equals(email);
 	}
 }

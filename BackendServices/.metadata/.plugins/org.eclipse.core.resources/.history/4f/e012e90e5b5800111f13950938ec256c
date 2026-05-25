@@ -1,0 +1,5 @@
+package com.flashkart.userservice.service;
+
+public class UserServiceImplTest {
+
+}

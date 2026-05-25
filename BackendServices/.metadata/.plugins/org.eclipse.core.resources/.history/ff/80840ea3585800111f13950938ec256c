@@ -1,0 +1,23 @@
+spring.application.name=user-service
+server.port=8081
+
+spring.datasource.url=jdbc:mysql://localhost:3307/flashkart
+spring.datasource.username=root
+spring.datasource.password=2106Sad
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+
+# JWT
+jwt.secret=flashkartsecretkeyflashkartsecretkey
+jwt.expiration=86400000
+
+# Swagger
+springdoc.api-docs.path=/api-docs
+
+# Actuator
+management.endpoints.web.exposure.include=*
+management.endpoint.health.show-details=always
+springdoc.api-docs.enabled=true
+springdoc.swagger-ui.enabled=true
