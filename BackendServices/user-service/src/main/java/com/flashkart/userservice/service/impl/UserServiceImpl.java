@@ -11,6 +11,7 @@ import com.flashkart.userservice.dto.UserResponseDto;
 import com.flashkart.userservice.entity.User;
 import com.flashkart.userservice.exception.DuplicateResourceException;
 import com.flashkart.userservice.exception.ResourceNotFoundException;
+import com.flashkart.userservice.kafka.KafkaProducerService;
 import com.flashkart.userservice.repository.UserRepository;
 import com.flashkart.userservice.security.JwtUtil;
 import com.flashkart.userservice.service.UserService;
@@ -25,7 +26,7 @@ public class UserServiceImpl implements UserService {
 	private final PasswordEncoder passwordEncoder;
 	private final ModelMapper mapper;
 	private final JwtUtil jwtUtil;
-	
+	private final KafkaProducerService producerService;
 	
 	@Override
 	public UserResponseDto register(UserRequestDto request) {
@@ -37,6 +38,11 @@ public class UserServiceImpl implements UserService {
 		User user = mapper.map(request, User.class);
 				user.setPassword(passwordEncoder.encode(request.getPassword()));
 				User savedUser = repository.save(user);
+				
+				
+				//Kafka Message
+				producerService.sendMessage("user-topic",
+						"New user registered : " + savedUser.getEmail());
 				
 				return mapper.map(savedUser,UserResponseDto.class);
 		}
